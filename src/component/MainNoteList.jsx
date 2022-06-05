@@ -20,7 +20,6 @@ export default function MainNoteList() {
       <div className="flex flex-col sm:flex-row justify-center">
         <div className="w-full">
           <h1 className="text-3xl font-bold text-center">Unarchived</h1>
-          {console.log(mynotes)}
           <NoteList mynotes={mynotes.filter(unarchivedFunc)} />
         </div>
         <div className="w-full">

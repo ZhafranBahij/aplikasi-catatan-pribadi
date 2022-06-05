@@ -1,13 +1,20 @@
 import React, { useState, useContext } from "react";
 import NoteContext from "../context/NoteContext";
+import InputForm from "./InputForm";
 
 export default function Form({ closeModal }) {
   const [formData, setFormData] = useState({
+    id: new Date(),
     title: "",
     body: "",
     archived: false,
+    createdAt: new Date(),
   });
+
+  // Untuk menghitung berapa karakter di title yang tersisa
   const [titleCharaCount, setTitleCharaCount] = useState(50);
+
+  // Menggunakan use context untuk mengambil fungsi agar menambahkan data baru
   const theNotes = useContext(NoteContext);
   const funcNotes = theNotes.addNewDataForm;
 
@@ -15,54 +22,47 @@ export default function Form({ closeModal }) {
     setFormData({ ...formData, [name]: value });
   };
 
+  // Khusus menangani perubahan title
   const handleChangeTitle = (event) => {
     setTitleCharaCount(50 - event.target.value.length);
-    if (event.target.value.length >= 50) {
+    if (event.target.value.length > 50) {
       setTitleCharaCount("The Title Input was Reach a maximum character");
+      return false;
     }
+    return true;
   };
 
+  // Untuk menangani perubahan data di form
   const handleChange = (event) => {
     let name = event.target.name;
     let value = name !== "archived" ? event.target.value : event.target.checked;
-    changeFormData(name, value);
     if (name === "title") {
-      handleChangeTitle(event);
+      let boolHandleChangeTitle = handleChangeTitle(event);
+      if (!boolHandleChangeTitle) {
+        return;
+      }
     }
 
-    // console.log(name + " = " + value);
-    // console.log(formData);
+    changeFormData(name, value);
   };
 
+  //  Untuk melakukan submit agar data terkirim ke store
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log(formData);
+    // console.log(formData);
     funcNotes(formData);
     closeModal();
   };
   return (
     <>
       <form onSubmit={handleSubmit}>
-        <div className="mb-6">
-          <label
-            htmlFor="title"
-            className="block mb-2 text-sm font-medium text-pink-500"
-          >
-            Title
-            <small className="ml-6">{titleCharaCount} Chara Left</small>
-          </label>
-          <input
-            type="text"
-            id="title"
-            name="title"
-            className="bg-gray-50 border border-pink-800 text-gray-900 text-sm rounded-lg focus:ring-pink-500 focus:border-pink-500 block w-full p-2.5 "
-            placeholder="What you want to do?"
-            onChange={handleChange}
-            value={formData.title}
-            maxLength={50}
-            required
-          />
-        </div>
+        <InputForm
+          typeInput="text"
+          nameInput="title"
+          titleCharaCount={titleCharaCount}
+          handleChange={handleChange}
+          value={formData.title}
+        />
 
         <div className="mb-6">
           <label

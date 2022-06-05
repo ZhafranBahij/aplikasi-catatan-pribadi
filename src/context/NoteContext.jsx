@@ -4,6 +4,9 @@ import React from "react";
 const NoteContext = React.createContext({
   datasForm: null,
   addNewDataForm: () => {},
+  movingNote: () => {},
+  deleteNote: () => {},
+  filterNoteWithTitle: () => {},
 });
 
 export default NoteContext;
