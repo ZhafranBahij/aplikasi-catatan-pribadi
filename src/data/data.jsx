@@ -4,28 +4,28 @@ let theData = [
     title: "Black",
     body: "lorem ipsum dolor sit amet",
     archived: false,
-    createdAt: "2022-04-14T04:27:34.572Z",
+    createdAt: "Minggu, 5 Juni 2022",
   },
   {
     id: 2,
     title: "White",
     body: "lorem ipsum dolor sit amet",
     archived: false,
-    createdAt: "2022-04-14T04:27:34.572Z",
+    createdAt: "Minggu, 5 Juni 2022",
   },
   {
     id: 3,
     title: "Blanc",
     body: "lorem ipsum dolor sit amet",
     archived: false,
-    createdAt: "2022-04-14T04:27:34.572Z",
+    createdAt: "Minggu, 5 Juni 2022",
   },
   {
     id: 4,
     title: "Shinei",
     body: "lorem ipsum dolor sit amet",
     archived: true,
-    createdAt: "2022-04-14T04:27:34.572Z",
+    createdAt: "Minggu, 5 Juni 2022",
   },
 ];
 export default theData;

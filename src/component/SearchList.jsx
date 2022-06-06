@@ -14,14 +14,14 @@ export default function SearchList() {
 
   return (
     <>
-      <form className="flex items-center">
+      <form className="flex items-center my-6 radius">
         <label htmlFor="simple-search" className="sr-only">
           Search
         </label>
         <div className="relative w-full">
-          <div className="flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none">
+          <div className="flex absolute inset-y-0 left-0 items-center px-3 pointer-events-none ">
             <svg
-              className="w-5 h-5 text-gray-500"
+              className="w-5 h-5 text-pink-700"
               fill="currentColor"
               viewBox="0 0 20 20"
               xmlns="http://www.w3.org/2000/svg"
@@ -36,7 +36,7 @@ export default function SearchList() {
           <input
             type="text"
             id="simple-search"
-            className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5 "
+            className="bg-gray-50 border border-gray-300 text-pink-700 text-sm rounded-lg focus:ring-pink-500 focus:border-pink-500 block w-full pl-10 p-2.5 "
             placeholder="Search"
             value={findTitle}
             onChange={handleChange}

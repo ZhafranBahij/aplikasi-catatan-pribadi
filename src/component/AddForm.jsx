@@ -14,13 +14,13 @@ export default function AddForm() {
   }
 
   return (
-    <>
+    <div className="flex justify-center my-6">
       <button
         type="button"
         onClick={openModal}
-        className="rounded-md bg-black bg-opacity-20 px-4 py-2 text-sm font-medium text-white hover:bg-opacity-30 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75"
+        className="rounded-md bg-pink-500 px-4 py-2 text-sm font-medium text-white hover:bg-pink-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75"
       >
-        Open dialog
+        Create New Note
       </button>
 
       <Transition appear show={isOpen} as={Fragment}>
@@ -48,7 +48,15 @@ export default function AddForm() {
                 leaveFrom="opacity-100 scale-100"
                 leaveTo="opacity-0 scale-95"
               >
-                <Dialog.Panel className="w-full max-w-md transform overflow-hidden rounded-2xl bg-gray-800 p-6 text-left align-middle shadow-xl transition-all">
+                <Dialog.Panel className="relative w-full max-w-md transform overflow-hidden rounded-2xl bg-gray-800 p-6 text-left align-middle shadow-xl transition-all">
+                  <div className="absolute right-5 top-5">
+                    <button
+                      className="bg-red-700 text-white hover:bg-red-500 p-3 rounded"
+                      onClick={closeModal}
+                    >
+                      X
+                    </button>
+                  </div>
                   <Dialog.Title
                     as="h3"
                     className="text-lg font-medium leading-6 text-pink-300"
@@ -64,6 +72,6 @@ export default function AddForm() {
           </div>
         </Dialog>
       </Transition>
-    </>
+    </div>
   );
 }

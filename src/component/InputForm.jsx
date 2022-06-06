@@ -12,11 +12,7 @@ export default function InputForm({
         className="block mb-2 text-sm font-medium text-pink-500"
       >
         Title
-        {titleCharaCount > -5 ? (
-          <small className="ml-6">{titleCharaCount} Chara Left</small>
-        ) : (
-          ""
-        )}
+        <small className="ml-6">{titleCharaCount} Character Left</small>
       </label>
       <input
         type={typeInput}
