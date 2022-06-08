@@ -27,6 +27,7 @@ export default function App() {
 
   // Menghapus data dari suatu note
   const deleteNote = (idData) => {
+    // eslint-disable-next-line eqeqeq
     const datas = datasForm.filter((dataForm) => dataForm.id != idData);
     setDatasForm([...datas]);
     // console.log(datas);
@@ -34,6 +35,7 @@ export default function App() {
 
   // Memindahkan data dari archived ke unarchived atau sebaliknya
   const movingNote = (idData) => {
+    // eslint-disable-next-line eqeqeq
     let data = datasForm.filter((dataForm) => dataForm.id == idData);
     data = data.pop();
     data.archived = !data.archived;
